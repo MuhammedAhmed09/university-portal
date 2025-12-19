@@ -1,4 +1,4 @@
-package UserServices.example.UserServicesRestaurant;
+package Api_Gateway_University.example.Api_Gateway_University;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class UserServicesRestaurantApplication {
+public class ApiGatewayUniversityApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UserServicesRestaurantApplication.class, args);
+		SpringApplication.run(ApiGatewayUniversityApplication.class, args);
 	}
 
 }
