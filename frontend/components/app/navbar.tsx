@@ -8,7 +8,7 @@ export default function Navbar() {
             <div className="flex gap-x-4 items-center">
                 <Link href="#features">Features</Link>
                 <Link href="#roles">Roles</Link>
-                <Link href="/login">
+                <Link href="/login" className="cursor-pointer">
                     <Button>Login</Button>
                 </Link>
             </div>

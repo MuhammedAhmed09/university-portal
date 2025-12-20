@@ -1,13 +1,17 @@
-export const loginUser = async ({ email, password }: { email: string; password: string }): Promise<void> => {
-    // (mock) محاكاه
-    // simulate on call
-    return new Promise<void>((resolve, reject) => {
-        setTimeout(() => {
-            if (email === 'test@example.com' && password === '123456') {
-                resolve();
-            } else {
-                reject(new Error('Invalid email or password'));
-            }
-        }, 1000);
-    });
-};
+import { api } from "./api"
+
+interface LoginPayload {
+  username: string;
+  password: string;
+}
+
+
+export const loginUser = async (payload: LoginPayload) => {
+    // WRONG: This sends { "payload": { "username": "...", "password": "..." } }
+    // const res = await api.post('/University/Users/Login', { payload });
+
+    // CORRECT: This sends { "username": "...", "password": "..." }
+    const res = await api.post('/University/Users/Login', payload);
+
+    return res.data;
+}
