@@ -1,4 +1,4 @@
-package Api_Gateway_Restaurant.example.Api_Gateway_Restaurant.Api_Gateway_Restaurant_AuthenticationsAndAuthorizationsConfigurationsFilter;
+package Api_Gateway_University.example.Api_Gateway_University.Api_Gateway_University_AuthenticationsAndAuthorizationsConfigurationsFilter;
 
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;

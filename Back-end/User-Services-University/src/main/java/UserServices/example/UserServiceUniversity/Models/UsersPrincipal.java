@@ -1,4 +1,4 @@
-package UserServices.example.UserServicesRestaurant.Models;
+package UserServices.example.UserServiceUniversity.Models;
 
 import java.util.Collection;
 import java.util.Collections;

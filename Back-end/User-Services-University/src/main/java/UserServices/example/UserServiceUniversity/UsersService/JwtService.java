@@ -1,4 +1,4 @@
-package UserServices.example.UserServicesRestaurant.UsersService;
+package UserServices.example.UserServiceUniversity.UsersService;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

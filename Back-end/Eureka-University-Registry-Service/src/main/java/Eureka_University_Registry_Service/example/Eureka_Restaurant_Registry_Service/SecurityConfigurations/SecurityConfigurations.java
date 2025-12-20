@@ -1,4 +1,4 @@
-package Eureka_Restaurant_Registry_Service.example.Eureka_Restaurant_Registry_Service.SecurityConfigurations;
+package Eureka_University_Registry_Service.example.Eureka_Restaurant_Registry_Service.SecurityConfigurations;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,7 +1,7 @@
-package UserServices.example.UserServicesRestaurant.SecurityConfigurations;
+package UserServices.example.UserServiceUniversity.SecurityConfigurations;
 
-import UserServices.example.UserServicesRestaurant.UsersService.JwtService;
-import UserServices.example.UserServicesRestaurant.UsersService.MyUserDetailsService;
+import UserServices.example.UserServiceUniversity.UsersService.JwtService;
+import UserServices.example.UserServiceUniversity.UsersService.MyUserDetailsService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
