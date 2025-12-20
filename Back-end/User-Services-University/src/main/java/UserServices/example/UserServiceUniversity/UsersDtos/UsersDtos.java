@@ -1,4 +1,4 @@
-package UserServices.example.UserServicesRestaurant.UsersDtos;
+package UserServices.example.UserServiceUniversity.UsersDtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

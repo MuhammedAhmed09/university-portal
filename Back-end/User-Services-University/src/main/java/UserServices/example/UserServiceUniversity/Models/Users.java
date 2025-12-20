@@ -1,4 +1,4 @@
-package UserServices.example.UserServicesRestaurant.Models;
+package UserServices.example.UserServiceUniversity.Models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

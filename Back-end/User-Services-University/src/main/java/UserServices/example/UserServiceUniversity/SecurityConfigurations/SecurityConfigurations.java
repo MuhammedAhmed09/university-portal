@@ -1,4 +1,4 @@
-package UserServices.example.UserServicesRestaurant.SecurityConfigurations;
+package UserServices.example.UserServiceUniversity.SecurityConfigurations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

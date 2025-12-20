@@ -1,7 +1,6 @@
-package Api_Gateway_Restaurant.example.Api_Gateway_Restaurant.Api_Gateway_Restaurant_AuthenticationsAndAuthorizationsConfigurationsFilter;
+package Api_Gateway_University.example.Api_Gateway_University.Api_Gateway_University_AuthenticationsAndAuthorizationsConfigurationsFilter;
 
-import Api_Gateway_Restaurant.example.Api_Gateway_Restaurant.JwtService.JwtService;
-import org.apache.el.parser.Token;
+import Api_Gateway_University.example.Api_Gateway_University.JwtService.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
@@ -14,7 +13,7 @@ import java.util.List;
 public class AuthenticationFilter extends AbstractGatewayFilterFactory<AuthenticationFilter.Config> {
 
     @Autowired
-    private RouteValidator validator;
+    private RouteValidator routeValidator;
 
     @Autowired
     private JwtService jwtService;
@@ -28,8 +27,7 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
         return ((exchange, chain) -> {
             ServerHttpRequest request = exchange.getRequest();
 
-            // If it's a public endpoint, skip authentication
-            if (!validator.isSecured.test(request)) {
+            if (!routeValidator.isSecured.test(request)) {
                 return chain.filter(exchange);  // NO MODIFICATION NEEDED
             }
 

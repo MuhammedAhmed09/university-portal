@@ -1,4 +1,4 @@
-package Api_Gateway_Restaurant.example.Api_Gateway_Restaurant.JwtService;
+package Api_Gateway_University.example.Api_Gateway_University.JwtService;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -23,7 +23,6 @@ public class JwtService {
     }
 
     public String extractUsername(String token) {
-        // Username is stored in claims, not subject
         return extractClaim(token, claims -> claims.get("username", String.class));
     }
 

@@ -1,8 +1,8 @@
-package UserServices.example.UserServicesRestaurant.UsersService;
+package UserServices.example.UserServiceUniversity.UsersService;
 
-import UserServices.example.UserServicesRestaurant.Models.Users;
-import UserServices.example.UserServicesRestaurant.Models.UsersPrincipal;
-import UserServices.example.UserServicesRestaurant.UsersRepository.UsersRepository;
+import UserServices.example.UserServiceUniversity.Models.Users;
+import UserServices.example.UserServiceUniversity.Models.UsersPrincipal;
+import UserServices.example.UserServiceUniversity.UsersRepository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
