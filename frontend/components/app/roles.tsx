@@ -8,7 +8,7 @@ const roles = [
         icon: GraduationCap,
     },
     {
-        title: 'Doctor',
+        title: 'Proffesor',
         desc: 'Manage courses, assignments, and grading.',
         icon: BookOpen,
     },

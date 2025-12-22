@@ -1,66 +1,92 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import {
   LayoutDashboard,
-  Users,
-  GraduationCap,
-  User,
-  Cpu
+  Settings,
+  Proportions,
 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
+import { ReactNode } from 'react';
+
+type SidebarItem = {
+  href: string;
+  label: string;
+  icon: ReactNode;
+};
+
+type SidebarProps = {
+  title: string;
+  dashboard: string;
+  body: SidebarItem[];
+};
 
 
-const users = [
-  {laber: 'Teachers', href: '/teacher', icon: <GraduationCap size={16} />},
-  {laber: 'Professor', href: '/professor', icon: <Cpu size={16} />},
-  {laber: 'Students', href: '/student', icon: <User size={16} />},
-];
+export default function Sidebar({ body, title, dashboard } : SidebarProps) {
+  const router = useRouter();
 
-export default function Sidebar() {
-  const [usersOpen, setUsersOpen] = useState(false);
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    router.push('/login');
+  }
 
   return (
-    <aside className="w-64 bg-white shadow-md">
+    <aside className="w-64 bg-white shadow-md relative">
       <div className="p-6 font-bold text-xl border-b">
-        Admin Panel
+        {title}
       </div>
 
       <nav className="p-4 space-y-2">
         <Link
-          href="/dashboard"
+          href={dashboard}
           className="flex items-center gap-2 p-2 rounded hover:bg-gray-100"
         >
           <LayoutDashboard size={18} />
           Dashboard
         </Link>
 
-        <button
-          onClick={() => setUsersOpen(!usersOpen)}
-          className="w-full flex items-center justify-between p-2 rounded hover:bg-gray-100"
-        >
-          <span className="flex items-center gap-2">
-            <Users size={18} />
-            Users
-          </span>
-          <span className='text-gray-700'>{usersOpen ? '▲' : '▼'}</span>
-        </button>
-
-        {usersOpen && (
-          <div className="ml-6 space-y-1">
-            {users.map((user) => (
+        <div className="space-y-1 border-y">
+          <div className='ml-2 space-y-2 py-10'>
+            {body.map((item) => (
                 <Link
-                  href={user.href}
-                  key={user.laber}
+                  href={item.href}
+                  key={item.label}
                   className="flex items-center gap-2 p-2 rounded hover:bg-gray-100"
                 >
-                  {user.icon}
-                  {user.laber}
+                  {item.icon}
+                  {item.label}
                 </Link>
             ))}
           </div>
-        )}
+        </div>
+
+        <Link
+          href="/settings"
+          className="flex items-center gap-2 p-2 rounded hover:bg-gray-100"
+        >
+          <Settings size={18} />
+          Settings
+        </Link>
+
+        <Link
+          href="/settings"
+          className="flex items-center gap-2 p-2 rounded hover:bg-gray-100"
+        >
+          <Proportions size={18} />
+          Reports
+        </Link>
+
       </nav>
+
+      { title === "Admin Panel" &&
+        <div className='w-full text-center border-y p-4 absolute bottom-0'>
+          <Button className='cursor-pointer' onClick={handleLogout} variant="outline">
+            Sign Out
+          </Button>
+        </div>      
+      }
     </aside>
   );
 }

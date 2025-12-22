@@ -15,7 +15,7 @@ export default function LoginPage() {
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
 
-    // ✅ Redirect if already logged in
+    // Redirect if already logged in
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (token) {
@@ -31,7 +31,6 @@ export default function LoginPage() {
             const data = await loginUser({ username, password });
             console.log("Login success:", data);
 
-            // ❌ التعامل مع المسافات في المفاتيح
             const token = data["Token "];
             const rolesArray = data["Role "];
 
