@@ -1,5 +1,12 @@
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+
 export default function Page() {
     return (
-        <h2>Manage Assignments</h2>
+        <section className="min-h-screen bg-gray-100 w-full flex items-center justify-center relative">
+            <Link className="absolute left-0 top-0" href="/professor/assignments/create">
+                <Button variant={"outline"} className="cursor-pointer">Create an Assignment</Button>
+            </Link>
+        </section>
     )
 }

@@ -1,4 +1,5 @@
 import { adminBody } from "@/components/dashboard/dashboard-json";
+import Link from "next/link";
 
 export default function Page() {
     return(
@@ -9,10 +10,10 @@ export default function Page() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {adminBody.map((item) => (
-                    <div key={item.label} className="bg-white p-6 rounded shadow flex items-center gap-2">
+                    <Link href={item.href} key={item.label} className="bg-white p-6 rounded shadow flex items-center gap-2">
                         {item.icon}
                         {item.label}
-                    </div>
+                    </Link>
                 ))}
             </div>  
         </main>

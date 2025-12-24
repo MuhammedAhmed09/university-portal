@@ -3,7 +3,7 @@ import { api } from "./api";
 export interface CreateUserPayload {
   username: string;
   password: string;
-  role: string; // ROLE_Admin | ROLE_Teacher | ROLE_Student | ROLE_Doctor
+  role: string; // ROLE_Admin | ROLE_Teacher | ROLE_Student | ROLE_Proffesor
 }
 
 export const createUser = async (payload: CreateUserPayload) => {

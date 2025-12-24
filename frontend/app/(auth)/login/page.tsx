@@ -32,16 +32,13 @@ export default function LoginPage() {
             console.log("Login success:", data);
 
             const token = data["Token "];
-            const rolesArray = data["Role "];
-
-            if (!token || !rolesArray?.length) {
+            const role = data["Role "];
+            
+            if (!token || !role) {
                 toast.error("Login failed or no role assigned");
                 return;
             }
-
-            // أول role في المصفوفة
-            const role = rolesArray[0].authority;
-
+            
             // خزن الـ token والـ role
             localStorage.setItem("token", token);
             localStorage.setItem("role", role);

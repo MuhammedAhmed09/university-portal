@@ -6,6 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { createUser } from "@/services/admin.service";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import axios from "axios";
 
 export default function Page() {
   const router = useRouter();
@@ -17,23 +18,40 @@ export default function Page() {
 
   // Admin guard
   useEffect(() => {
-    const role = localStorage.getItem("role");
-    if (role !== "ROLE_Admin") {
+    const isAdminRole = localStorage.getItem("role");
+    if (isAdminRole !== "ROLE_Admin") {
       router.push("/login");
     }
   }, [router]);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     setLoading(true);
     try {
-      await createUser({ username, password, role });
-      setLoading(false);
+      const data = await createUser({ username, password, role });
+      console.log(data);
+      
       toast.success("User created successfully");
       setUsername("");
       setPassword("");
-    } catch {
-      toast.error("Failed to create user");
-    }
+    } catch (error: unknown) {
+      console.log("CREATE USER ERROR", error);
+
+      if (axios.isAxiosError(error)) {
+        toast.error(
+          error?.response?.data?.message ||
+          error?.response?.statusText ||
+          "Failed to create user"
+        );
+      } else if (error instanceof Error) {
+        toast.error(error.message)
+      } else {
+        toast.error("Unexpected error");
+      }
+
+    } finally {
+      setLoading(false);
+    };
   };
 
   return (
@@ -52,7 +70,7 @@ export default function Page() {
         >
             <option value="ROLE_Student">Student</option>
             <option value="ROLE_Teacher">Teacher</option>
-            <option value="ROLE_Doctor">Doctor</option>
+            <option value="ROLE_Proffesor">Proffesor</option>
             <option value="ROLE_Admin">Admin</option>
         </select>
 

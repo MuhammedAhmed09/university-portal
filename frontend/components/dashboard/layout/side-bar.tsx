@@ -33,7 +33,7 @@ export default function Sidebar({ body, title, dashboard } : SidebarProps) {
   }
 
   return (
-    <aside className="w-64 bg-white shadow-md relative">
+    <aside className="bg-white shadow-md min-h-screen fixed z-50 w-64">
       <div className="p-6 font-bold text-xl border-b">
         {title}
       </div>

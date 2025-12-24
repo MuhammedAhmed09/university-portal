@@ -11,7 +11,7 @@ export default function StudentLayout({
         <div className="flex min-h-screen bg-gray-100">
             <Sidebar body={studentBody} title="Student Panel" dashboard="/student"/>
         
-            <main className="p-6 w-full flex-1">  
+            <main className="p-6 ml-64 flex-1">  
                 {children}
             </main>
         </div>
